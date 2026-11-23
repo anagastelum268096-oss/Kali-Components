@@ -1,0 +1,151 @@
+:root {
+  --rojo: #d62828;
+  --naranja: #f77f00;
+  --fondo: #fff4ec;
+  --texto: #2b2b2b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+a {
+  color: var(--rojo);
+}
+
+/* Login y Register */
+.auth {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background: #fff;
+  border-top: 5px solid var(--naranja);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.brand {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.brand__logo {
+  margin-right: 0.4rem;
+}
+
+.card__subtitle {
+  color: #666;
+}
+
+/* Formularios */
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.field input {
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.field input:focus {
+  outline: 2px solid var(--naranja);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  background: var(--rojo);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--naranja);
+  color: #fff;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--rojo);
+  border: 1px solid var(--rojo);
+}
+
+.alert {
+  padding: 0.7rem;
+  color: var(--rojo);
+  background: #ffe3e0;
+  border-radius: 6px;
+}
+
+.alert[hidden] {
+  display: none;
+}
+
+.card__footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* Home */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #fff;
+  border-bottom: 4px solid var(--rojo);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.component {
+  padding: 1rem;
+  background: #fff;
+  border-left: 4px solid var(--naranja);
+  border-radius: 6px;
+}
+
+.component__icon {
+  font-size: 1.8rem;
+}

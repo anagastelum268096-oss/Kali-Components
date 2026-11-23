@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Inicio · Kali Components</title>
+  <!-- Sin JavaScript: redirige igualmente a login -->
+  <noscript><meta http-equiv="refresh" content="0; url=login.html?acceso=denegado"></noscript>
+  <!-- Home siempre redirige a login -->
+  <script>
+    window.location.replace("login.html?acceso=denegado");
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span>Kali Components</span>
+    </div>
+    <a class="btn btn--ghost" href="login.html">Cerrar sesión</a>
+  </header>
+
+  <main class="container">
+    <h1>Componentes de computadora</h1>
+    <p class="card__subtitle">Resumen del inventario.</p>
+
+    <section class="grid" aria-label="Categorías de componentes">
+      <article class="component">
+        <h2>Procesador (CPU)</h2>
+        <p>Ejecuta las instrucciones y coordina el resto del equipo.</p>
+      </article>
+      <article class="component">
+        <h2>Tarjeta gráfica (GPU)</h2>
+        <p>Procesa imágenes, video y gráficos 3D.</p>
+      </article>
+      <article class="component">
+        <h2>Memoria RAM</h2>
+        <p>Almacena datos temporales para acceso rápido.</p>
+      </article>
+      <article class="component">
+        <h2>Almacenamiento</h2>
+        <p>Discos SSD y HDD para guardar archivos y sistema.</p>
+      </article>
+      <article class="component">
+        <h2>Placa base</h2>
+        <p>Conecta y comunica todos los componentes.</p>
+      </article>
+      <article class="component">
+        <h2>Fuente de poder</h2>
+        <p>Suministra energía estable a todo el sistema.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
