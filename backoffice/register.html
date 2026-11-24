@@ -16,11 +16,13 @@
     <h1>Crear cuenta</h1>
     <p class="card__subtitle">Regístrate para gestionar componentes de computadora.</p>
 
-    <form class="form" action="home.html" method="get">
+    <p id="register-alert" class="alert" role="alert" hidden></p>
+
+    <form id="register-form" class="form">
       <div class="field">
         <label for="name">Nombre completo</label>
         <input type="text" id="name" name="name" placeholder="Tu nombre"
-               autocomplete="name" required>
+               autocomplete="name" minlength="6" required>
       </div>
 
       <div class="field">
@@ -36,17 +38,24 @@
       </div>
 
       <div class="field">
+        <label for="itsonId">ID ITSON</label>
+        <input type="text" id="itsonId" name="itsonId" placeholder="216578"
+               inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required>
+      </div>
+
+      <div class="field">
         <label for="confirm">Confirmar contraseña</label>
         <input type="password" id="confirm" name="confirm" placeholder="Repite la contraseña"
                autocomplete="new-password" minlength="8" required>
       </div>
 
-      <button type="submit" class="btn btn--block">Registrarme</button>
+      <button id="register-submit" type="submit" class="btn btn--block">Registrarme</button>
     </form>
 
     <p class="card__footer">
       ¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a>
     </p>
   </main>
+  <script src="js/app.js" defer></script>
 </body>
 </html>

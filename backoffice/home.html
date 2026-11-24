@@ -5,52 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <title>Inicio · Kali Components</title>
-  <!-- Sin JavaScript: redirige igualmente a login -->
   <noscript><meta http-equiv="refresh" content="0; url=login.html?acceso=denegado"></noscript>
-  <!-- Home siempre redirige a login -->
-  <script>
-    window.location.replace("login.html?acceso=denegado");
-  </script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="auth-checking">
   <header class="topbar">
     <div class="brand">
       <span>Kali Components</span>
     </div>
-    <a class="btn btn--ghost" href="login.html">Cerrar sesión</a>
+    <button id="logout" class="btn btn--ghost" type="button">Cerrar sesión</button>
   </header>
 
-  <main class="container">
-    <h1>Componentes de computadora</h1>
-    <p class="card__subtitle">Resumen del inventario.</p>
-
-    <section class="grid" aria-label="Categorías de componentes">
-      <article class="component">
-        <h2>Procesador (CPU)</h2>
-        <p>Ejecuta las instrucciones y coordina el resto del equipo.</p>
-      </article>
-      <article class="component">
-        <h2>Tarjeta gráfica (GPU)</h2>
-        <p>Procesa imágenes, video y gráficos 3D.</p>
-      </article>
-      <article class="component">
-        <h2>Memoria RAM</h2>
-        <p>Almacena datos temporales para acceso rápido.</p>
-      </article>
-      <article class="component">
-        <h2>Almacenamiento</h2>
-        <p>Discos SSD y HDD para guardar archivos y sistema.</p>
-      </article>
-      <article class="component">
-        <h2>Placa base</h2>
-        <p>Conecta y comunica todos los componentes.</p>
-      </article>
-      <article class="component">
-        <h2>Fuente de poder</h2>
-        <p>Suministra energía estable a todo el sistema.</p>
-      </article>
-    </section>
+  <main id="auth-status" class="container" hidden>
+    <p id="auth-status-message" class="alert" role="alert"></p>
+    <button id="retry-auth" class="btn" type="button">Reintentar</button>
   </main>
+
+  <main class="container">
+    <div class="section-heading">
+      <div>
+        <h1>Mis proyectos</h1>
+        <p id="welcome" class="card__subtitle">Gestiona tus proyectos.</p>
+      </div>
+      <button id="show-project-form" class="btn" type="button">Agregar proyecto</button>
+    </div>
+
+    <p id="project-alert" class="alert" role="alert" hidden></p>
+
+    <form id="project-form" class="project-form" hidden>
+      <h2 id="project-form-title">Nuevo proyecto</h2>
+      <input id="project-id" type="hidden">
+      <div class="field">
+        <label for="title">Título</label>
+        <input id="title" name="title" required>
+      </div>
+      <div class="field">
+        <label for="description">Descripción</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+      </div>
+      <div class="field">
+        <label for="technologies">Tecnologías (separadas por comas)</label>
+        <input id="technologies" name="technologies" placeholder="React, Node.js">
+      </div>
+      <div class="field">
+        <label for="repository">Repositorio</label>
+        <input id="repository" name="repository" type="url" placeholder="https://github.com/usuario/proyecto">
+      </div>
+      <div class="field">
+        <label for="images">URLs de imágenes (separadas por comas)</label>
+        <input id="images" name="images" placeholder="https://ejemplo.com/captura.png">
+      </div>
+      <div class="form-actions">
+        <button id="save-project" class="btn" type="submit">Guardar</button>
+        <button id="cancel-project" class="btn btn--ghost" type="button">Cancelar</button>
+      </div>
+    </form>
+
+    <section id="projects-grid" class="grid" aria-label="Proyectos registrados"></section>
+  </main>
+
+  <script src="js/app.js" defer></script>
 </body>
 </html>
