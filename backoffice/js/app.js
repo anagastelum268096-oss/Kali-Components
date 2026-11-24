@@ -112,7 +112,10 @@ function initializeHome() {
     window.location.replace("login.html?acceso=denegado");
   }
 
-  if (!token) redirectToLogin();
+  if (!token) {
+    redirectToLogin();
+    return;
+  }
 
   const alert = document.getElementById("project-alert");
   const form = document.getElementById("project-form");
