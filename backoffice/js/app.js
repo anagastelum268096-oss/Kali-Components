@@ -28,8 +28,13 @@ function initializeLogin() {
         throw new Error("La respuesta del servidor no incluye un token de sesión válido.");
       }
 
+      const user = data.user || data.userPublicData;
+      if (!user || typeof user !== "object") {
+        throw new Error("La respuesta del servidor no incluye los datos de la cuenta.");
+      }
+
       localStorage.setItem("authToken", data.token);
-      localStorage.setItem("authUser", JSON.stringify(data.user));
+      localStorage.setItem("authUser", JSON.stringify(user));
       window.location.replace("home.html");
     } catch (error) {
       const aviso = document.getElementById("aviso");
@@ -193,6 +198,16 @@ function initializeHome() {
         card.appendChild(technologies);
       }
 
+      if (project.images?.length) {
+        project.images.forEach((source) => {
+          const image = createElement("img", "project-image");
+          image.src = source;
+          image.alt = `Imagen del proyecto ${project.title}`;
+          image.loading = "lazy";
+          card.appendChild(image);
+        });
+      }
+
       if (project.repository) {
         const repository = createElement("a", "project-link", "Ver repositorio");
         repository.href = project.repository;
@@ -265,6 +280,7 @@ function initializeHome() {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const projectId = document.getElementById("project-id").value;
+    const submit = document.getElementById("save-project");
     const project = {
       title: document.getElementById("title").value.trim(),
       description: document.getElementById("description").value.trim(),
@@ -274,6 +290,8 @@ function initializeHome() {
       images: splitValues(document.getElementById("images").value)
     };
 
+    submit.disabled = true;
+    submit.textContent = "Guardando...";
     try {
       if (projectId) {
         await apiRequest(`/projects/${projectId}`, {
@@ -292,6 +310,9 @@ function initializeHome() {
       await loadProjects();
     } catch (error) {
       showAlert(error.message);
+    } finally {
+      submit.disabled = false;
+      submit.textContent = "Guardar";
     }
   });
 
